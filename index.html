@@ -1,662 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lumina Jewels — Fine Jewellery</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            50: '#fbf7ef',
-                            100: '#f5ebd7',
-                            200: '#e9d5a8',
-                            300: '#d4b36e',
-                            400: '#c49a4a',
-                            500: '#b8860b',
-                            600: '#9a6f0a',
-                            700: '#7a570c',
-                            800: '#654710',
-                            900: '#543c12',
-                        },
-                        cream: '#faf7f2',
-                        charcoal: '#1a1a1a',
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                },
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shubh Jewels — Premium Indian Jewellery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#fdf8ef',
+              100: '#f9edd4',
+              200: '#f0d9a8',
+              300: '#e4be6e',
+              400: '#d4a017',
+              500: '#b8860b',
+              600: '#9a6b09',
+              700: '#7c520c',
+              800: '#664210',
+              900: '#563712',
             },
-        };
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet" />
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: #faf7f2;
-            margin: 0;
-        }
-
-        .font-serif {
-            font-family: 'Playfair Display', Georgia, serif;
-        }
-
-        .product-card:hover .product-img {
-            transform: scale(1.05);
-        }
-
-        .product-img {
-            transition: transform 0.5s ease;
-        }
-
-        .cart-panel {
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .cart-overlay {
-            transition: opacity 0.3s ease;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.4s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .badge-pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.08);
-            }
-        }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #c49a4a;
-            border-radius: 3px;
-        }
-    </style>
+            maroon: {
+              500: '#8B0000',
+              600: '#6B0000',
+              700: '#4A0000',
+            },
+            cream: '#fdf8f0',
+            deep: '#1a120b',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Poppins', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Poppins', system-ui, sans-serif; background: #fdf8f0; margin: 0; }
+    .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+    .product-card:hover .product-img { transform: scale(1.06); }
+    .product-img { transition: transform 0.55s ease; }
+    .cart-panel { transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1); }
+    .cart-overlay { transition: opacity 0.3s ease; }
+    .fade-in { animation: fadeIn 0.4s ease forwards; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .badge-pulse { animation: pulse 2s infinite; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #f1e9d8; }
+    ::-webkit-scrollbar-thumb { background: #d4a017; border-radius: 3px; }
+  </style>
 </head>
-
 <body>
-    <div id="root"></div>
+  <div id="root"></div>
 
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <script type="text/babel">
-        const { useState, useEffect, useMemo } = React;
+  <script type="text/babel">
+    const { useState, useEffect, useMemo } = React;
 
-        const PRODUCTS = [
-            {
-                id: 1,
-                name: "Eternal Diamond Ring",
-                category: "Rings",
-                price: 2499,
-                originalPrice: 2999,
-                image: "https://images.unsplash.com/photo-1605100804763-247f995f979a?w=600&h=600&fit=crop",
-                description: "18K white gold solitaire with 1.2ct brilliant-cut diamond.",
-                badge: "Bestseller",
-            },
-            {
-                id: 2,
-                name: "Celestial Pearl Necklace",
-                category: "Necklaces",
-                price: 1890,
-                originalPrice: null,
-                image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=600&fit=crop",
-                description: "South Sea pearls strung on 18K yellow gold with diamond clasp.",
-                badge: null,
-            },
-            {
-                id: 3,
-                name: "Aurora Drop Earrings",
-                category: "Earrings",
-                price: 980,
-                originalPrice: 1200,
-                image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop",
-                description: "Rose gold drops with pink tourmaline and diamonds.",
-                badge: "Sale",
-            },
-            {
-                id: 4,
-                name: "Heritage Gold Bangle",
-                category: "Bracelets",
-                price: 3200,
-                originalPrice: null,
-                image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop",
-                description: "Handcrafted 22K gold bangle with intricate filigree work.",
-                badge: "Limited",
-            },
-            {
-                id: 5,
-                name: "Sapphire Halo Ring",
-                category: "Rings",
-                price: 1750,
-                originalPrice: 2100,
-                image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&h=600&fit=crop",
-                description: "Ceylon blue sapphire surrounded by a halo of diamonds.",
-                badge: "Sale",
-            },
-            {
-                id: 6,
-                name: "Minimalist Chain Bracelet",
-                category: "Bracelets",
-                price: 420,
-                originalPrice: null,
-                image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&h=600&fit=crop",
-                description: "Delicate 14K gold paperclip chain. Everyday luxury.",
-                badge: null,
-            },
-            {
-                id: 7,
-                name: "Emerald Pendant",
-                category: "Necklaces",
-                price: 2650,
-                originalPrice: null,
-                image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=600&fit=crop",
-                description: "Colombian emerald set in platinum with diamond accents.",
-                badge: "New",
-            },
-            {
-                id: 8,
-                name: "Twisted Hoop Earrings",
-                category: "Earrings",
-                price: 680,
-                originalPrice: 850,
-                image: "https://images.unsplash.com/photo-1588444837495-c6cfeb53a4c6?w=600&h=600&fit=crop",
-                description: "Sculptural twisted gold hoops. Modern classic.",
-                badge: "Sale",
-            },
-        ];
+    // Indian Jewellery Products with ₹ prices
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: "Kundan Bridal Necklace Set",
+        category: "Necklaces",
+        price: 45999,
+        originalPrice: 54999,
+        image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop",
+        description: "22K gold-plated Kundan set with pearl drops. Perfect for weddings.",
+        badge: "Bestseller",
+      },
+      {
+        id: 2,
+        name: "Temple Gold Jhumkas",
+        category: "Earrings",
+        price: 8999,
+        originalPrice: 10999,
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop",
+        description: "Traditional South Indian temple design jhumkas in antique gold finish.",
+        badge: "Sale",
+      },
+      {
+        id: 3,
+        name: "Diamond Solitaire Ring",
+        category: "Rings",
+        price: 78999,
+        originalPrice: null,
+        image: "https://images.unsplash.com/photo-1605100804763-247f995f979a?w=600&h=600&fit=crop",
+        description: "18K white gold solitaire with 0.75ct certified diamond.",
+        badge: "Premium",
+      },
+      {
+        id: 4,
+        name: "Polki Choker Set",
+        category: "Necklaces",
+        price: 32999,
+        originalPrice: 38999,
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=600&fit=crop",
+        description: "Uncut Polki diamonds set in 22K gold with matching earrings.",
+        badge: "Limited",
+      },
+      {
+        id: 5,
+        name: "Meenakari Bangles (Pair)",
+        category: "Bangles",
+        price: 12499,
+        originalPrice: 14999,
+        image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&h=600&fit=crop",
+        description: "Hand-painted Meenakari work on pure gold-plated bangles.",
+        badge: "Sale",
+      },
+      {
+        id: 6,
+        name: "Emerald Drop Earrings",
+        category: "Earrings",
+        price: 18999,
+        originalPrice: null,
+        image: "https://images.unsplash.com/photo-1588444837495-c6cfeb53a4c6?w=600&h=600&fit=crop",
+        description: "Colombian emerald drops set in 18K rose gold with diamonds.",
+        badge: "New",
+      },
+      {
+        id: 7,
+        name: "Antique Gold Mangalsutra",
+        category: "Necklaces",
+        price: 24999,
+        originalPrice: 28999,
+        image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=600&fit=crop",
+        description: "Traditional black beads with antique gold pendant & chain.",
+        badge: "Popular",
+      },
+      {
+        id: 8,
+        name: "Ruby Cocktail Ring",
+        category: "Rings",
+        price: 34999,
+        originalPrice: null,
+        image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&h=600&fit=crop",
+        description: "Burmese ruby center stone with diamond halo in 18K gold.",
+        badge: "Exclusive",
+      },
+    ];
 
-        const CATEGORIES = ["All", "Rings", "Necklaces", "Earrings", "Bracelets"];
+    const CATEGORIES = ["All", "Necklaces", "Earrings", "Rings", "Bangles"];
+    const WHATSAPP_NUMBER = "918767857140"; // +91 8767857140
 
-        function App() {
-            const [cart, setCart] = useState(() => {
-                try {
-                    const saved = localStorage.getItem("lumina-cart");
-                    return saved ? JSON.parse(saved) : [];
-                } catch {
-                    return [];
-                }
-            });
-            const [isCartOpen, setIsCartOpen] = useState(false);
-            const [selectedCategory, setSelectedCategory] = useState("All");
-            const [searchQuery, setSearchQuery] = useState("");
-            const [toast, setToast] = useState(null);
-            const [checkoutDone, setCheckoutDone] = useState(false);
+    function formatINR(amount) {
+      return "₹" + amount.toLocaleString("en-IN");
+    }
 
-            useEffect(() => {
-                localStorage.setItem("lumina-cart", JSON.stringify(cart));
-            }, [cart]);
-
-            useEffect(() => {
-                if (toast) {
-                    const t = setTimeout(() => setToast(null), 2200);
-                    return () => clearTimeout(t);
-                }
-            }, [toast]);
-
-            const filteredProducts = useMemo(() => {
-                return PRODUCTS.filter((p) => {
-                    const matchCat = selectedCategory === "All" || p.category === selectedCategory;
-                    const matchSearch =
-                        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                        p.description.toLowerCase().includes(searchQuery.toLowerCase());
-                    return matchCat && matchSearch;
-                });
-            }, [selectedCategory, searchQuery]);
-
-            const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
-            const cartTotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-
-            const addToCart = (product) => {
-                setCart((prev) => {
-                    const existing = prev.find((i) => i.id === product.id);
-                    if (existing) {
-                        return prev.map((i) =>
-                            i.id === product.id ? { ...i, qty: i.qty + 1 } : i
-                        );
-                    }
-                    return [...prev, { ...product, qty: 1 }];
-                });
-                setToast(product.name + " added to bag");
-            };
-
-            const updateQty = (id, delta) => {
-                setCart((prev) =>
-                    prev
-                        .map((i) => (i.id === id ? { ...i, qty: Math.max(0, i.qty + delta) } : i))
-                        .filter((i) => i.qty > 0)
-                );
-            };
-
-            const removeFromCart = (id) => {
-                setCart((prev) => prev.filter((i) => i.id !== id));
-            };
-
-            const clearCart = () => setCart([]);
-
-            const handleCheckout = () => {
-                if (cart.length === 0) return;
-                setCheckoutDone(true);
-                setTimeout(() => {
-                    clearCart();
-                    setIsCartOpen(false);
-                    setCheckoutDone(false);
-                    setToast("Thank you! Your order has been placed.");
-                }, 1800);
-            };
-
-            return (
-                <div className="min-h-screen bg-cream text-charcoal">
-                    {toast && (
-                        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] bg-charcoal text-white px-6 py-3 rounded-full shadow-lg text-sm font-medium fade-in">
-                            {toast}
-                        </div>
-                    )}
-
-                    {/* Header */}
-                    <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-gold-200/60">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div className="flex items-center justify-between h-16 md:h-20">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center shadow-sm">
-                                        <span className="text-white text-lg font-serif font-bold">L</span>
-                                    </div>
-                                    <div>
-                                        <h1 className="font-serif text-xl md:text-2xl font-semibold tracking-tight text-charcoal">
-                                            Lumina
-                                        </h1>
-                                        <p className="text-[10px] tracking-[0.2em] uppercase text-gold-600 -mt-0.5 hidden sm:block">
-                                            Fine Jewels
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="hidden md:flex flex-1 max-w-md mx-8">
-                                    <div className="relative w-full">
-                                        <input
-                                            type="text"
-                                            placeholder="Search jewellery..."
-                                            value={searchQuery}
-                                            onChange={(e) => setSearchQuery(e.target.value)}
-                                            className="w-full pl-10 pr-4 py-2.5 rounded-full border border-gold-200 bg-white/80 text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition"
-                                        />
-                                        <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                        </svg>
-                                    </div>
-                                </div>
-
-                                <button
-                                    onClick={() => setIsCartOpen(true)}
-                                    className="relative flex items-center gap-2 px-4 py-2.5 rounded-full bg-charcoal text-white hover:bg-gold-700 transition-colors shadow-md"
-                                >
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                                    </svg>
-                                    <span className="text-sm font-medium hidden sm:inline">Bag</span>
-                                    {cartCount > 0 && (
-                                        <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-gold-500 text-white text-xs font-bold rounded-full flex items-center justify-center badge-pulse">
-                                            {cartCount}
-                                        </span>
-                                    )}
-                                </button>
-                            </div>
-
-                            <div className="md:hidden pb-3">
-                                <div className="relative">
-                                    <input
-                                        type="text"
-                                        placeholder="Search jewellery..."
-                                        value={searchQuery}
-                                        onChange={(e) => setSearchQuery(e.target.value)}
-                                        className="w-full pl-10 pr-4 py-2.5 rounded-full border border-gold-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/50"
-                                    />
-                                    <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
-
-                    {/* Hero */}
-                    <section className="relative overflow-hidden bg-gradient-to-br from-charcoal via-charcoal to-gold-900 text-white">
-                        <div className="absolute inset-0 opacity-20">
-                            <div className="absolute top-10 right-10 w-72 h-72 bg-gold-400 rounded-full blur-3xl"></div>
-                            <div className="absolute bottom-0 left-20 w-96 h-96 bg-gold-600 rounded-full blur-3xl"></div>
-                        </div>
-                        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col md:flex-row items-center gap-10">
-                            <div className="flex-1 text-center md:text-left">
-                                <p className="text-gold-300 text-sm tracking-[0.3em] uppercase mb-3">New Collection 2026</p>
-                                <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium leading-tight mb-4">
-                                    Jewellery that<br />
-                                    <span className="italic text-gold-300">becomes you</span>
-                                </h2>
-                                <p className="text-white/70 max-w-md mx-auto md:mx-0 mb-8 text-base leading-relaxed">
-                                    Discover handcrafted pieces designed to be worn every day and treasured for a lifetime.
-                                </p>
-                                <a
-                                    href="#collection"
-                                    className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold-500 hover:bg-gold-400 text-charcoal font-medium rounded-full transition shadow-lg shadow-gold-500/25"
-                                >
-                                    Shop Collection
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
-                                </a>
-                            </div>
-                            <div className="flex-1 flex justify-center">
-                                <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-gold-400/40 shadow-2xl">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=600&h=600&fit=crop"
-                                        alt="Luxury jewellery"
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Collection */}
-                    <section id="collection" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-4">
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-                            <div>
-                                <h3 className="font-serif text-2xl md:text-3xl font-medium text-charcoal">Our Collection</h3>
-                                <p className="text-sm text-gray-500 mt-1">{filteredProducts.length} pieces</p>
-                            </div>
-                            <div className="flex flex-wrap gap-2">
-                                {CATEGORIES.map((cat) => (
-                                    <button
-                                        key={cat}
-                                        onClick={() => setSelectedCategory(cat)}
-                                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === cat
-                                                ? "bg-charcoal text-white shadow-md"
-                                                : "bg-white text-charcoal border border-gold-200 hover:border-gold-400 hover:bg-gold-50"
-                                            }`}
-                                    >
-                                        {cat}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        {filteredProducts.length === 0 ? (
-                            <div className="text-center py-20">
-                                <p className="text-gray-500 text-lg">No pieces found. Try a different search.</p>
-                            </div>
-                        ) : (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-16">
-                                {filteredProducts.map((product) => (
-                                    <article
-                                        key={product.id}
-                                        className="product-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gold-100"
-                                    >
-                                        <div className="relative aspect-square overflow-hidden bg-gold-50">
-                                            <img
-                                                src={product.image}
-                                                alt={product.name}
-                                                className="product-img w-full h-full object-cover"
-                                                loading="lazy"
-                                            />
-                                            {product.badge && (
-                                                <span
-                                                    className={`absolute top-3 left-3 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide rounded-full ${product.badge === "Sale"
-                                                            ? "bg-red-500 text-white"
-                                                            : product.badge === "New"
-                                                                ? "bg-emerald-500 text-white"
-                                                                : "bg-gold-500 text-white"
-                                                        }`}
-                                                >
-                                                    {product.badge}
-                                                </span>
-                                            )}
-                                        </div>
-                                        <div className="p-5">
-                                            <p className="text-[11px] uppercase tracking-wider text-gold-600 mb-1">{product.category}</p>
-                                            <h4 className="font-serif text-lg font-medium text-charcoal leading-snug mb-1">
-                                                {product.name}
-                                            </h4>
-                                            <p className="text-sm text-gray-500 line-clamp-2 mb-4">{product.description}</p>
-                                            <div className="flex items-center justify-between">
-                                                <div className="flex items-baseline gap-2">
-                                                    <span className="text-lg font-semibold text-charcoal">
-                                                        ${product.price.toLocaleString()}
-                                                    </span>
-                                                    {product.originalPrice && (
-                                                        <span className="text-sm text-gray-400 line-through">
-                                                            ${product.originalPrice.toLocaleString()}
-                                                        </span>
-                                                    )}
-                                                </div>
-                                                <button
-                                                    onClick={() => addToCart(product)}
-                                                    className="flex items-center gap-1.5 px-3.5 py-2 bg-charcoal text-white text-sm font-medium rounded-full hover:bg-gold-600 transition-colors"
-                                                >
-                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                                    </svg>
-                                                    Add
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </article>
-                                ))}
-                            </div>
-                        )}
-                    </section>
-
-                    {/* Trust strip */}
-                    <section className="bg-charcoal text-white py-10">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-                            <div>
-                                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gold-500/20 flex items-center justify-center">
-                                    <svg className="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                    </svg>
-                                </div>
-                                <h4 className="font-medium mb-1">Hallmarked Gold</h4>
-                                <p className="text-sm text-white/60">Certified purity & authenticity</p>
-                            </div>
-                            <div>
-                                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gold-500/20 flex items-center justify-center">
-                                    <svg className="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                                    </svg>
-                                </div>
-                                <h4 className="font-medium mb-1">Free Shipping</h4>
-                                <p className="text-sm text-white/60">On orders above $500</p>
-                            </div>
-                            <div>
-                                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gold-500/20 flex items-center justify-center">
-                                    <svg className="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                    </svg>
-                                </div>
-                                <h4 className="font-medium mb-1">30-Day Returns</h4>
-                                <p className="text-sm text-white/60">Easy & hassle-free</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Footer */}
-                    <footer className="bg-cream border-t border-gold-200 py-8">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <div className="flex items-center gap-2">
-                                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center">
-                                    <span className="text-white text-sm font-serif font-bold">L</span>
-                                </div>
-                                <span className="font-serif text-lg">Lumina Jewels</span>
-                            </div>
-                            <p className="text-sm text-gray-500">© 2026 Lumina. Crafted with love.</p>
-                        </div>
-                    </footer>
-
-                    {/* Cart Overlay */}
-                    <div
-                        className={`fixed inset-0 bg-black/40 z-[60] cart-overlay ${isCartOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                            }`}
-                        onClick={() => setIsCartOpen(false)}
-                    />
-
-                    {/* Cart Panel */}
-                    <div
-                        className={`fixed top-0 right-0 h-full w-full max-w-md bg-white z-[70] shadow-2xl cart-panel flex flex-col ${isCartOpen ? "translate-x-0" : "translate-x-full"
-                            }`}
-                    >
-                        <div className="flex items-center justify-between px-6 py-5 border-b border-gold-100">
-                            <h3 className="font-serif text-xl font-medium">
-                                Your Bag <span className="text-gold-600 text-base font-sans">({cartCount})</span>
-                            </h3>
-                            <button
-                                onClick={() => setIsCartOpen(false)}
-                                className="w-9 h-9 rounded-full hover:bg-gold-50 flex items-center justify-center transition"
-                            >
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <div className="flex-1 overflow-y-auto px-6 py-4">
-                            {checkoutDone ? (
-                                <div className="flex flex-col items-center justify-center h-full text-center fade-in">
-                                    <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mb-4">
-                                        <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                    </div>
-                                    <h4 className="font-serif text-xl mb-2">Order Placed!</h4>
-                                    <p className="text-sm text-gray-500">Thank you for shopping with Lumina.</p>
-                                </div>
-                            ) : cart.length === 0 ? (
-                                <div className="flex flex-col items-center justify-center h-full text-center">
-                                    <svg className="w-16 h-16 text-gold-200 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                                    </svg>
-                                    <p className="text-gray-500 mb-4">Your bag is empty</p>
-                                    <button
-                                        onClick={() => setIsCartOpen(false)}
-                                        className="px-5 py-2.5 bg-charcoal text-white text-sm rounded-full hover:bg-gold-600 transition"
-                                    >
-                                        Continue Shopping
-                                    </button>
-                                </div>
-                            ) : (
-                                <ul className="space-y-5">
-                                    {cart.map((item) => (
-                                        <li key={item.id} className="flex gap-4 fade-in">
-                                            <div className="w-20 h-20 rounded-xl overflow-hidden bg-gold-50 flex-shrink-0">
-                                                <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                                            </div>
-                                            <div className="flex-1 min-w-0">
-                                                <h4 className="font-medium text-sm truncate">{item.name}</h4>
-                                                <p className="text-xs text-gray-500 mt-0.5">{item.category}</p>
-                                                <p className="text-sm font-semibold text-gold-700 mt-1">
-                                                    ${item.price.toLocaleString()}
-                                                </p>
-                                                <div className="flex items-center gap-3 mt-2">
-                                                    <div className="flex items-center border border-gold-200 rounded-full">
-                                                        <button
-                                                            onClick={() => updateQty(item.id, -1)}
-                                                            className="w-7 h-7 flex items-center justify-center text-gray-600 hover:text-charcoal"
-                                                        >
-                                                            −
-                                                        </button>
-                                                        <span className="w-7 text-center text-sm font-medium">{item.qty}</span>
-                                                        <button
-                                                            onClick={() => updateQty(item.id, 1)}
-                                                            className="w-7 h-7 flex items-center justify-center text-gray-600 hover:text-charcoal"
-                                                        >
-                                                            +
-                                                        </button>
-                                                    </div>
-                                                    <button
-                                                        onClick={() => removeFromCart(item.id)}
-                                                        className="text-xs text-red-500 hover:text-red-600"
-                                                    >
-                                                        Remove
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
-
-                        {cart.length > 0 && !checkoutDone && (
-                            <div className="border-t border-gold-100 px-6 py-5 space-y-4">
-                                <div className="flex justify-between items-center">
-                                    <span className="text-gray-600">Subtotal</span>
-                                    <span className="text-xl font-semibold font-serif">${cartTotal.toLocaleString()}</span>
-                                </div>
-                                <p className="text-xs text-gray-400">Shipping & taxes calculated at checkout</p>
-                                <button
-                                    onClick={handleCheckout}
-                                    className="w-full py-3.5 bg-charcoal text-white font-medium rounded-full hover:bg-gold-600 transition shadow-md"
-                                >
-                                    Checkout — ${cartTotal.toLocaleString()}
-                                </button>
-                                <button
-                                    onClick={clearCart}
-                                    className="w-full py-2 text-sm text-gray-500 hover:text-charcoal transition"
-                                >
-                                    Clear bag
-                                </button>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            );
+    function App() {
+      const [cart, setCart] = useState(() => {
+        try {
+          const saved = localStorage.getItem("shubh-cart");
+          return saved ? JSON.parse(saved) : [];
+        } catch {
+          return [];
         }
+      });
+      const [isCartOpen, setIsCartOpen] = useState(false);
+      const [selectedCategory, setSelectedCategory] = useState("All");
+      const [searchQuery, setSearchQuery] = useState("");
+      const [toast, setToast] = useState(null);
+      const [customerName, setCustomerName] = useState("");
+      const [customerPhone, setCustomerPhone] = useState("");
 
-        const root = ReactDOM.createRoot(document.getElementById("root"));
-        root.render(<App />);
-    </script>
-</body>
+      useEffect(() => {
+        localStorage.setItem("shubh-cart", JSON.stringify(cart));
+      }, [cart]);
 
-</html>
+      useEffect(() => {
+        if (toast) {
+          const t = setTimeout(() => setToast(null), 2500);
+          return () => clearTimeout(t);
+        }
+      }, [toast]);
+
+      const filteredProducts = useMemo(() => {
+        return PRODUCTS.filter((p) => {
+          const matchCat = selectedCategory === "All" || p.category === selectedCategory;
+          const matchSearch =
+            p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            p.description.toLowerCase().includes(searchQuery.toLowerCase());
+          return matchCat && matchSearch;
+        });
+      }, [selectedCategory, searchQuery]);
+
+      const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      const cartTotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+      const addToCart = (product) => {
+        setCart((prev) => {
+          const existing = prev.find((i) => i.id === product.id);
+          if (existing) {
+            return prev.map((i) =>
+              i.id === product.id ? { ...i, qty: i.qty + 1 } : i
+            );
+          }
+          return [...prev, { ...product, qty: 1 }];
+        });
+        setToast(product.name + " added to bag ✨");
+      };
+
+      const updateQty = (id, delta) => {
+        setCart((prev) =>
+          prev
+            .map((i) => (i.id === id ? { ...i, qty: Math.max(0, i.qty + delta) } : i))
+            .filter((i) => i.qty > 0)
+        );
+      };
+
+      const removeFromCart = (id) => {
+        setCart((prev) => prev.filter((i) => i.id !== id));
+      };
+
+      const clearCart = () => setCart([]);
+
+      // Generate WhatsApp Bill Message
+      const generateBillMessage = () => {
+        const date = new Date().toLocaleString("en-IN", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+
+        let message = `✨ *SHUBH JEWELS - ORDER BILL* ✨\n`;
+        message += `━━━━━━━━━━━━━━━━━━━━\n`;
+        message += `📅 Date: ${date}\n`;
+        if (customerName) message += `👤 Customer: ${customerName}\n`;
+        if (customerPhone) message += `📞 Phone: ${customerPhone}\n`;
+        message += `━━━━━━━━━━━━━━━━━━━━\n\n`;
+        message += `*ORDER DETAILS:*\n\n`;
+
+        cart.forEach((item, index) => {
+          message += `${index + 1}. *${item.name}*\n`;
+          message += `   Qty: ${item.qty} × ${formatINR(item.price)}\n`;
+          message += `   = ${formatINR(item.price * item.qty)}\n\n`;
+        });
+
+        message += `━━━━━━━━━━━━━━━━━━━━\n`;
+        message += `💰 *TOTAL AMOUNT: ${formatINR(cartTotal)}*\n`;
+        message += `━━━━━━━━━━━━━━━━━━━━\n\n`;
+        message += `🙏 Thank you for shopping with Shubh Jewels!\n`;
+        message += `We will confirm your order shortly.`;
+
+        return message;
+      };
+
+      const sendBillOnWhatsApp = () => {
+        if (cart.length === 0) return;
+
+        const message = generateBillMessage();
+        const encoded = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+
+        // Open WhatsApp
+        window.open(whatsappURL, "_blank");
+
+        setToast("Opening WhatsApp to send bill... 📱");
+        
+        // Clear cart after short delay
+        setTimeout(() => {
+          clearCart();
+          setIsCartOpen(false);
+          setCustomerName("");
+          setCustomerPhone("");
+          setToast("Bill sent successfully! 🎉");
+        }, 1500);
+      };
+
+      return (
+        <div className="min-h-screen bg-cream text-deep">
+          {/* Toast */}
+          {toast && (
+            <div className="fixed top-5 left-1/2 -translate-x-1/2 z-[100] bg-deep text-white px-6 py-3 rounded-full shadow-xl text-sm font-medium fade-in max-w-[90vw] text-center">
+              {toast}
+            </div>
+          )}
+
+          {/* Header */}
+          <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-gold-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex items-center justify-between h-16 md:h-20">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center shadow-md">
+                    <span className="text-white text-xl font-serif font-bold">श</span>
+                  </div>
+                  <div>
+                    <h1 className="font-serif text-xl md:text-2xl font-semibold tracking-tight">
+                      Shubh Jewels
+                    </h1>
+                    <p className="text-[10px] tracking-[0.25em] uppercase text-gold-600 -mt-0.5 hidden sm:block">
+                      Since 1998 • Authentic Gold
+                    </p>
+                  </div>
+                </div>
+
+                <div className="hidden md:flex flex-1 max-w-md mx-8">
+                  <div className="relative w-full">
+                    <input
+                      type="text"
+                      placeholder="Search jewellery..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full pl-10 pr-4 py-2.5 rounded-full border border-gold-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/60 focus:border-gold-400 transition"
+                    />
+                    <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setIsCartOpen(true)}
+                  className="relative flex items-center gap-2 px-4 py-2.5 rounded-full bg-deep text-white hover:bg-gold-700 transition-colors shadow-md"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                  </svg>
+                  <span className="text-sm font-medium hidden sm:inline">Bag</span>
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-maroon-500 text-white text-xs font-bold rounded-full flex items-center justify-center badge-pulse">
+                      {cartCount}
+                    </span>
+                  )}
+                </button>
+              </div>
+
+              <div className="md:hidden pb-3">
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Search jewellery..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2.5 rounded-full border border-gold-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/60"
+                  />
+                  <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          {/* Hero Section */}
+          <section className="relative overflow-hidden bg-gradient-to-br from-deep via-[#2a1f14] to-gold-900 text-white">
+            <div className="absolute inset-0 opacity-25">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-gold-400 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-10 w-96 h-96 bg-maroon-500 rounded-full blur-3xl opacity-40"></div>
+            </div>
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-22 flex flex-col md:flex-row items-center gap-10">
+              <div className="flex-1 text-center md:text-left">
+                <p className="text-gold-300 text-sm tracking-[0.35em] uppercase mb-3 font-medium">
+                  Authentic Indian Craftsmanship
+                </p>
+                <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium leading-tight mb-4">
+                  Jewellery that<br />
+                  <span className="italic text-gold-300">tells your story</span>
+                </h2>
+                <p className="text-white/75 max-w-md mx-auto md:mx-0 mb-8 text-base leading-relaxed">
+                  From traditional Kundan to modern diamonds — handcrafted pieces for every celebration of life.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                  <a
+                    href="#collection"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gold-500 hover:bg-gold-400 text-deep font-semibold rounded-full transition shadow-lg shadow-gold-500/30"
+                  >
+                    Shop Collection
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    target="_blank"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border-2 border-gold-400 text-gold-300 hover:bg-gold-400 hover:text-deep font-medium rounded-full transition"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 
